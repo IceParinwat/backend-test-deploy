@@ -24,7 +24,7 @@ app.use(express.json());
 
 const allowedOrigins = [
   "https://artnakkk-frontend-admin.vercel.app",
-  "http://localhost:5173",
+  "https://backend-test-deploy-pay1.onrender.com",
   "http://localhost:5175", // For local development
   "http://localhost:5176", // For local development
 ];
@@ -44,7 +44,6 @@ app.use(
     credentials: true,
   })
 );
-
 
 // api endpoints
 app.use("/api/user", userRouter);
