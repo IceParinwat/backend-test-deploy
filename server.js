@@ -24,6 +24,7 @@ app.use(express.json());
 
 const allowedOrigins = [
   "https://artnakkk-frontend-admin.vercel.app",
+  "http://localhost:5173",
   "http://localhost:5175", // For local development
   "http://localhost:5176", // For local development
 ];
@@ -32,18 +33,18 @@ const allowedOrigins = [
 app.use(
   cors({
     origin: (origin, callback) => {
-      // Allow requests with no origin (e.g., mobile apps or curl)
       if (!origin) return callback(null, true);
       if (allowedOrigins.includes(origin)) {
-        callback(null, true); // Allow the origin
+        callback(null, true);
       } else {
-        callback(new Error("Not allowed by CORS")); // Block the origin
+        callback(new Error("Not allowed by CORS"));
       }
     },
     methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true, // Allow cookies or Authorization headers
+    credentials: true,
   })
 );
+
 
 // api endpoints
 app.use("/api/user", userRouter);
